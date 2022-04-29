@@ -56,17 +56,16 @@ function updateData(req, res) {
         new: true
     }, (err, doc) => {
         if (!err) {
-            res.redirect('Bucket/list');
-        } // if there is no error I will return the update values else {
+            res.redirect('Bucket/list'); //if there is no error I will /return the update values
+        } else {
             if (err.name == 'ValidationError') { // if there is some error, I will return the validation error
                 handleValidationError(err, req.body);
-                res.render("Bucket/AddEdit", {
+                res.render("bucket/addOrEdit", {
                     viewTitle: 'Update User',
                     bucket: req.body
                 });
-            } else 
-                console.log('Error during record update : ' + err);
-             // if the error is not related to validation I will return the error
+            } else
+                console.log('Error during record update : ' + err); // if the error is not related to validation I will return the error
         }
     });
 }
