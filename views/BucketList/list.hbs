@@ -1,0 +1,55 @@
+<head>
+<style>
+h1{text-align: center;
+
+}
+
+
+
+</style>
+
+<h1>Bucket List</h1>
+
+<h2><a button type="button" i class="bi bi-pencil"  href="/bucket">Add New</button></a></h2> <!--Button add new-->
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th> Name</th>
+            <th>Nationality </th>
+            <th>Age </th>
+            <th>Dream</th>
+            <th></th>
+        </tr>
+    </thead>
+    <!--    using index #each,  showing records from my database collection 'bucket' -->
+
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.nationality}}</td>
+            <td>{{this.age}}</td>
+            <td>{{this.dream}}</td>
+            <td>
+
+                
+                <!--------------------------Buttons Edit and Delete----------------->
+
+                <a button type="button" i class="bi bi-pencil"  href="/bucket/{{this._id}}">Edit</button></a>
+                 <a button type="button" i class="bi bi-pencil"  href="/bucket/delete/{{this._id}}
+                 " onclick="return confirm('Are you sure to delete this record ?');">Delete</button></a>
+
+                
+               
+              
+               
+              
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+</head>
