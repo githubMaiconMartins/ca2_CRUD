@@ -1,4 +1,4 @@
-// reques statement for express
+// request statement for express
 const express = require('express');
 const req = require('express/lib/request');
 var router = express.Router();
