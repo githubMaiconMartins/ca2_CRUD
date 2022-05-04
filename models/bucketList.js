@@ -1,6 +1,7 @@
-const mongoose = require('mongoose');
-var Bucketschema = new mongoose.Schema({
+const mongoose = require('mongoose');//request statement
+var Bucketschema = new mongoose.Schema({ // object of  my schema
 
+    //specifing the structure of my bucket document, there will be 4 fields
     name: {
         type: String
 
@@ -16,7 +17,6 @@ var Bucketschema = new mongoose.Schema({
         type: String
     }
 
-
 });
-
+//Registering this schema inside mongoose using model function
 mongoose.model('bucket', Bucketschema);

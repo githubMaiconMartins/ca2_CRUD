@@ -7,7 +7,7 @@
       "start": "node server.js",
       "test": "nodemon server.js"
     },
-    "author": "",
+    "author": "Maicon Martins - 2019219",
     "license": "ISC",
     "dependencies": {
       "@handlebars/allow-prototype-access": "^1.0.5",
