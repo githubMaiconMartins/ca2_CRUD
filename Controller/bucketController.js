@@ -1,24 +1,23 @@
-// request statement for express
-const express = require('express');
+                                   
+const express = require('express');         // request statement for express
 const req = require('express/lib/request');
 var router = express.Router();
-const mongoose = require('mongoose'); // request statement
-const bucket = mongoose.model('bucket');
-// variable that will store the bucket scheema into mongoose
+const mongoose = require('mongoose');       // request statement
+const bucket = mongoose.model('bucket');    // variable that will store the bucket scheema into mongoose
 
-// creating a new router using GET function, request and response
-// this function will handle my request
-router.get('/', (req, res) => {
+// ---------this function will handle my request---------------
 
-    res.render("BucketList/AddEdit", { // rendering my file
+router.get('/', (req, res) => {              //Creating  a new router using GET function, request and response
 
-        viewTitle: "Bucket List" //
+    res.render("BucketList/AddEdit", {       // rendering my file
+
+        viewTitle: "Bucket List" 
 
     });
 
 });
-// Creating a new router using POST, here I can identify if I have an INSERT or UPDATE operation
-router.post('/', (req, res) => {
+
+router.post('/', (req, res) => {            // Creating a new router using POST, here I can identify if I have an INSERT or UPDATE operation
 
     if (req.body._id == '') 
         insertData(req, res);
@@ -31,13 +30,13 @@ router.post('/', (req, res) => {
 // ----------------INSERT NEW DATA TO MONGODB--------------------------------------------------
 function insertData(req, res) {
 
-    var Bucket = new bucket(); // object of bucket Schema
-    Bucket.name = req.body.name; //
+    var Bucket = new bucket();           // object of bucket Schema
+    Bucket.name = req.body.name; 
     Bucket.nationality = req.body.nationality;
     Bucket.age = req.body.age;
     Bucket.dream = req.body.dream;
 
-    Bucket.save((err, doc) => { // Saving the records, if there`s no error all the inserted will information will be listed
+    Bucket.save((err, doc) => {         // Saving the records, if there`s no error all the inserted will information will be listed
         if (!err) 
             res.redirect('Bucket/list');
          else {
@@ -56,9 +55,9 @@ function updateData(req, res) {
         new: true
     }, (err, doc) => {
         if (!err) {
-            res.redirect('Bucket/list'); //if there is no error I will /return the update values
+            res.redirect('Bucket/list');            //if there is no error I will /return the update values
         } else {
-            if (err.name == 'ValidationError') { // if there is some error, I will return the validation error
+            if (err.name == 'ValidationError') {    // if there is some error, I will return the validation error
                 handleValidationError(err, req.body);
                 res.render("bucket/addOrEdit", {
                     viewTitle: 'Update User',
