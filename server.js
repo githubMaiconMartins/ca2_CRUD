@@ -6,7 +6,7 @@ const exphbs = require('express-handlebars');// request statement for handlebars
 const  bodyparser = require('body-parser');//request statement for body-parser
 
 
-//converting that to json
+//converting that to json 
 var app = express();
 app.use(bodyparser.urlencoded({
     extended: true
