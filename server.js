@@ -1,9 +1,8 @@
-require('./models/db');
-
+const db = require('./models/db');
 const express = require('express');
 const path = require('path');//adding the request 
 const exphbs = require('express-handlebars');// request statement for handlebars
-const  bodyparser = require('body-parser');//request statement for body-parser
+const bodyparser = require('body-parser');//request statement for body-parser
 
 
 //converting that to json 
